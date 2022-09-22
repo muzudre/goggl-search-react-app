@@ -21,9 +21,9 @@ export const Results = () => {
   switch (location.pathname) {
     case "/search":
       return (
-        <div className="flex flex-wrap justify-between space-y-6 sm:px-56">
-          {results?.map(({ link, title }, index) => (
-            <div key={index} className="md:w-2/5 w-full">
+        <div className="flex flex-wrap justify-between sm:ml-48 md:ml-24 md:mr-56">
+          {results?.map(({ link, title, description }, index) => (
+            <div key={index} className="w-full">
               <a href={link} target="_blank" rel="noreferrer">
                 <p className="text-sm">
                   {link.length > 30 ? link.substring(0, 30) : link}
@@ -31,6 +31,7 @@ export const Results = () => {
                 <p className="text-lg hover:underline dark:text-blue-300 text-blue-700">
                   {title}
                 </p>
+                <p className="mb-6">{description}</p>
               </a>
             </div>
           ))}
@@ -55,9 +56,18 @@ export const Results = () => {
       );
     case "/news":
       return (
-        <div className="flex flex-wrap justify-between space-y-6 sm:px-56 items-center">
-          {results?.map(({ links, id, source, title }) => (
-            <div key={id} className="md:w-2/5 w-full">
+        <div className="flex flex-wrap justify-between sm:ml-48 md:ml-24 md:mr-56">
+          {console.log(results)}
+          {results?.map(({ links, id, source, title, published, summary }) => (
+            <div key={id} className="w-full mb-4">
+              <div className="flex gap-4">
+                <a href={source?.href} target="_blank" rel="noreferrer">
+                  {published}
+                </a>
+                <a href={source?.href} target="_blank" rel="noreferrer">
+                  {source?.href}
+                </a>
+              </div>
               <a
                 href={links?.[0].href}
                 target="_blank"
@@ -68,11 +78,7 @@ export const Results = () => {
                   {title}
                 </p>
               </a>
-              <div className="flex gap-4">
-                <a href={source?.href} target="_blank" rel="noreferrer">
-                  {source?.href}
-                </a>
-              </div>
+              <div dangerouslySetInnerHTML={{ __html: summary }} />
             </div>
           ))}
         </div>
