@@ -3,8 +3,10 @@
 ## Tech used with *react*🔥:
 
 > Frontend
--   React
--   Tailwind
+
+- React
+- Tailwind
+- RapidAPI Google Search
 
 ## Live
 
