@@ -1,10 +1,19 @@
 import React from "react";
-import { InfinitySpin } from "react-loader-spinner";
+import { MagnifyingGlass } from "react-loader-spinner";
 
 export const Loading = () => {
   return (
     <div className="flex justify-center items-center">
-      <InfinitySpin width="80" height="550" color="#00bfff" />
+      <MagnifyingGlass
+        visible={true}
+        height="80"
+        width="80"
+        ariaLabel="MagnifyingGlass-loading"
+        wrapperStyle={{}}
+        wrapperClass="MagnifyingGlass-wrapper"
+        glassColor="transparent"
+        color="#3b82f6"
+      />
     </div>
   );
 };
