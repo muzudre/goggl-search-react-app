@@ -13,6 +13,7 @@ export const Results = () => {
     if (searchTerm) {
       getResults(`${location.pathname}/q=${searchTerm}&num=40`);
     }
+    // eslint-disable-next-line
   }, [searchTerm, location.pathname]);
 
   if (isLoading) return <Loading />;

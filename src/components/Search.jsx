@@ -11,6 +11,7 @@ export const Search = () => {
 
   useEffect(() => {
     if (debouncedValue) setSearchTerm(debouncedValue);
+    // eslint-disable-next-line
   }, [debouncedValue]);
 
   return (
